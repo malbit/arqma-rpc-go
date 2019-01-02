@@ -1,4 +1,4 @@
-package monero
+package arqma
 
 /***************************************/
 type Balance struct {

@@ -1,16 +1,16 @@
-package monero
+package arqma
 
 type WalletClient struct {
 	*CallClient
 }
 
 // start wallet rpc server:
-//win .\monero-wallet-rpc.exe --rpc-login user:pass --wallet-file D:\work\text\admin\admin --rpc-bind-ip 127.0.0.1 --rpc-bind-port 18082
+//win .\arqma-wallet-rpc.exe --rpc-login user:pass --wallet-file D:\work\text\admin\admin --rpc-bind-ip 127.0.0.1 --rpc-bind-port 19996
 func NewWalletClient(endpoint, username, password string) *WalletClient {
 	return &WalletClient{NewCallClient(endpoint, username, password)}
 }
 
-// curl -u user:pass --digest http://127.0.0.1:18082/json_rp   -d '{"jsonrpc":"2.0","id":"0","method":"'getbalance'"}'
+// curl -u user:pass --digest http://127.0.0.1:19996/json_rp   -d '{"jsonrpc":"2.0","id":"0","method":"'getbalance'"}'
 func (c *WalletClient) GetBalance() (Balance, error) {
 	var rep Balance
 	if err := c.Wallet("getbalance", nil, &rep); err != nil {

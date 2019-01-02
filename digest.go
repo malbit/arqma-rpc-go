@@ -1,4 +1,4 @@
-package monero
+package arqma
 
 import (
 	"crypto/md5"
